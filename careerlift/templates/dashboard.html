@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — CareerLift{% endblock %}
+
+{% block content %}
+<div class="container-lg py-4">
+
+  <!-- Header -->
+  <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+    <div class="d-flex align-items-center gap-3">
+      <div class="cl-page-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+      <div>
+        <h2 class="mb-0 fw-bold">Progress Dashboard</h2>
+        <p class="cl-text-muted mb-0 small">Track your interview readiness and achievements</p>
+      </div>
+    </div>
+    <div class="d-flex gap-2">
+      <a href="/chat" class="btn cl-hero-btn-primary"><i class="bi bi-lightning-charge-fill me-2"></i>Continue Prep</a>
+      <a href="/mock" class="btn cl-hero-btn-secondary"><i class="bi bi-mic me-2"></i>Mock Interview</a>
+    </div>
+  </div>
+
+  <!-- Profile Banner -->
+  {% if data.profile.role %}
+  <div class="cl-profile-banner mb-4">
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+      <div class="cl-profile-avatar">
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div>
+        <h5 class="mb-0 fw-bold">{{ data.profile.role }}</h5>
+        <p class="mb-0 cl-text-muted">
+          {{ data.profile.experience | capitalize }} Level
+          {% if data.profile.company %} · Targeting <strong>{{ data.profile.company }}</strong>{% endif %}
+        </p>
+      </div>
+      <div class="ms-auto">
+        <div class="cl-readiness-badge">
+          <div class="cl-readiness-num">{{ data.readiness_score }}</div>
+          <div class="cl-readiness-label">Readiness<br>Score</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Stats Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+      <div class="cl-stat-card">
+        <div class="cl-stat-icon cl-icon-blue"><i class="bi bi-chat-dots-fill"></i></div>
+        <div class="cl-stat-value">{{ data.stats.sessions }}</div>
+        <div class="cl-stat-label">Prep Sessions</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="cl-stat-card">
+        <div class="cl-stat-icon cl-icon-purple"><i class="bi bi-question-circle-fill"></i></div>
+        <div class="cl-stat-value">{{ data.stats.questions }}</div>
+        <div class="cl-stat-label">Questions Practiced</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="cl-stat-card">
+        <div class="cl-stat-icon cl-icon-green"><i class="bi bi-mic-fill"></i></div>
+        <div class="cl-stat-value">{{ data.stats.mocks }}</div>
+        <div class="cl-stat-label">Mock Interviews</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="cl-stat-card">
+        <div class="cl-stat-icon cl-icon-orange"><i class="bi bi-star-fill"></i></div>
+        <div class="cl-stat-value">{{ data.stats.avg_score }}%</div>
+        <div class="cl-stat-label">Average Score</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <!-- Readiness Progress -->
+    <div class="col-md-6">
+      <div class="cl-card h-100">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-speedometer2 me-2"></i>Interview Readiness</h6>
+        </div>
+        <div class="cl-card-body">
+          <div class="cl-readiness-ring-container mb-3">
+            <svg class="cl-readiness-ring" viewBox="0 0 120 120" width="160" height="160">
+              <circle cx="60" cy="60" r="50" class="cl-ring-bg"></circle>
+              <circle cx="60" cy="60" r="50" class="cl-ring-progress"
+                      stroke-dasharray="{{ (data.readiness_score / 100 * 314.16) | round(2) }} 314.16"
+                      stroke-dashoffset="78.54"></circle>
+              <text x="60" y="55" text-anchor="middle" class="cl-ring-num">{{ data.readiness_score }}</text>
+              <text x="60" y="70" text-anchor="middle" class="cl-ring-label">/ 100</text>
+            </svg>
+          </div>
+          <div class="cl-readiness-breakdown">
+            <div class="cl-breakdown-item">
+              <span class="small">Questions Practiced</span>
+              <div class="progress cl-progress flex-grow-1 mx-2" style="height:4px">
+                <div class="progress-bar cl-progress-bar" style="width:{{ [data.stats.questions * 4, 100] | min }}%"></div>
+              </div>
+              <span class="small fw-bold">{{ data.stats.questions }}</span>
+            </div>
+            <div class="cl-breakdown-item mt-2">
+              <span class="small">Mock Interviews</span>
+              <div class="progress cl-progress flex-grow-1 mx-2" style="height:4px">
+                <div class="progress-bar cl-progress-bar" style="width:{{ [data.stats.mocks * 20, 100] | min }}%"></div>
+              </div>
+              <span class="small fw-bold">{{ data.stats.mocks }}</span>
+            </div>
+            <div class="cl-breakdown-item mt-2">
+              <span class="small">Avg Score</span>
+              <div class="progress cl-progress flex-grow-1 mx-2" style="height:4px">
+                <div class="progress-bar cl-progress-bar cl-bar-green" style="width:{{ data.stats.avg_score }}%"></div>
+              </div>
+              <span class="small fw-bold">{{ data.stats.avg_score }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="col-md-6">
+      <div class="cl-card h-100">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-award-fill me-2"></i>Achievements</h6>
+        </div>
+        <div class="cl-card-body">
+          {% if data.badges %}
+          <div class="d-flex flex-wrap gap-2">
+            {% for badge in data.badges %}
+            <div class="cl-badge-earned">{{ badge }}</div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="text-center py-4">
+            <div class="cl-placeholder-icon mb-2"><i class="bi bi-award"></i></div>
+            <p class="cl-text-muted small">Start practicing to earn achievement badges!</p>
+            <a href="/chat" class="btn cl-hero-btn-primary btn-sm mt-2">Start Practicing</a>
+          </div>
+          {% endif %}
+
+          <!-- Locked Badges Preview -->
+          <div class="mt-3">
+            <p class="small cl-text-muted fw-semibold mb-2">Upcoming Achievements</p>
+            <div class="d-flex flex-wrap gap-2">
+              {% set earned = data.badges %}
+              {% for badge_name in ["🚀 First Question", "📚 Consistent Learner", "🏆 Question Master", "🎤 Mock Debut", "🎯 Mock Pro", "⭐ High Scorer"] %}
+              {% if badge_name not in earned %}
+              <div class="cl-badge-locked">{{ badge_name }}</div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="col-12">
+      <div class="cl-card">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-clock-history me-2"></i>Recent Activity</h6>
+        </div>
+        <div class="cl-card-body p-0">
+          {% if data.activity_log %}
+          <div class="cl-activity-list">
+            {% for activity in data.activity_log | reverse %}
+            <div class="cl-activity-item">
+              <div class="cl-activity-icon">
+                {% if activity.type == 'question_practiced' %}<i class="bi bi-question-circle cl-icon-blue"></i>
+                {% elif activity.type == 'mock_completed' %}<i class="bi bi-mic cl-icon-green"></i>
+                {% elif activity.type == 'resume_analyzed' %}<i class="bi bi-file-person cl-icon-orange"></i>
+                {% elif activity.type == 'session_started' %}<i class="bi bi-play-circle cl-icon-purple"></i>
+                {% else %}<i class="bi bi-chat-dots cl-icon-teal"></i>{% endif %}
+              </div>
+              <div class="cl-activity-content">
+                <div class="fw-semibold small">{{ activity.type | replace('_', ' ') | title }}</div>
+                {% if activity.detail %}
+                <div class="cl-text-muted small">{{ activity.detail }}</div>
+                {% endif %}
+              </div>
+              <div class="ms-auto text-end">
+                {% if activity.score %}
+                <div class="cl-score-badge {% if activity.score >= 70 %}cl-score-good{% else %}cl-score-low{% endif %}">
+                  {{ activity.score }}%
+                </div>
+                {% endif %}
+                <div class="cl-text-muted small">{{ activity.timestamp }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="text-center py-5">
+            <div class="cl-placeholder-icon mb-2"><i class="bi bi-clock-history"></i></div>
+            <p class="cl-text-muted">No activity yet. Start preparing to see your progress here!</p>
+            <a href="/chat" class="btn cl-hero-btn-primary btn-sm mt-2">Start Now</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-12">
+      <div class="cl-card">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Quick Actions</h6>
+        </div>
+        <div class="cl-card-body">
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <a href="/chat" class="cl-quick-action-card text-decoration-none">
+                <i class="bi bi-chat-dots-fill cl-icon-blue"></i>
+                <div>Chat with Coach</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a href="/generate" class="cl-quick-action-card text-decoration-none">
+                <i class="bi bi-question-octagon-fill cl-icon-purple"></i>
+                <div>Generate Questions</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a href="/mock" class="cl-quick-action-card text-decoration-none">
+                <i class="bi bi-mic-fill cl-icon-green"></i>
+                <div>Mock Interview</div>
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a href="/resume" class="cl-quick-action-card text-decoration-none">
+                <i class="bi bi-file-person-fill cl-icon-orange"></i>
+                <div>Analyse Resume</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

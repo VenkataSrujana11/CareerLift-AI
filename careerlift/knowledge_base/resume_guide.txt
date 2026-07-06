@@ -1,0 +1,120 @@
+RESUME BEST PRACTICES AND ATS OPTIMIZATION GUIDE
+================================================
+
+SECTION 1: RESUME STRUCTURE
+----------------------------
+A strong resume follows this order:
+1. Contact Information (name, email, phone, LinkedIn, GitHub/portfolio)
+2. Professional Summary (2-4 sentences tailored to each role)
+3. Technical Skills (categorized: Languages, Frameworks, Tools, Platforms)
+4. Work Experience (reverse chronological, bullet points with metrics)
+5. Projects (notable personal or academic projects with tech stack and impact)
+6. Education (degree, institution, graduation year, GPA if above 3.5)
+7. Certifications (AWS, Google Cloud, Kubernetes, etc.)
+8. Achievements/Awards (hackathons, publications, patents)
+
+SECTION 2: WRITING STRONG BULLET POINTS
+-----------------------------------------
+Use the format: [Action Verb] + [What you did] + [Impact/Result]
+BAD: "Responsible for API development"
+GOOD: "Designed and implemented REST APIs serving 2M+ daily requests, reducing average response time by 40%"
+
+Strong action verbs: Architected, Designed, Developed, Implemented, Optimized, Reduced, Improved, Led, Launched, Automated, Migrated, Delivered, Built, Engineered, Created, Managed, Scaled, Integrated
+
+Quantify everything possible:
+- Team size you led/collaborated with
+- Performance improvements (%, ms, latency)
+- Scale (users, transactions, data volume)
+- Cost savings ($, %)
+- Time saved (hours, days)
+
+SECTION 3: ATS OPTIMIZATION
+-----------------------------
+Applicant Tracking Systems scan resumes before humans do.
+
+Key ATS rules:
+1. Use standard section headings (not creative names)
+2. Submit as PDF or DOCX (not JPG or fancy design formats)
+3. Avoid tables, headers/footers, text boxes (ATS can't read them)
+4. Use keywords from the job description verbatim
+5. Spell out acronyms at least once
+6. Use standard fonts: Calibri, Arial, Helvetica, Times New Roman
+
+Keyword matching:
+- Copy the job description and identify 10-15 key technical terms
+- Ensure your resume uses those exact terms
+- Tools: Jobscan, Resume Worded
+
+SECTION 4: COMMON MISTAKES TO AVOID
+-------------------------------------
+1. Typos and grammatical errors (use Grammarly)
+2. Generic objective statements
+3. Using "I" or "we" (use action verbs directly)
+4. Including a photo (in the US/UK — legal risk for employers)
+5. Including references ("Available upon request" is obsolete)
+6. One resume for all jobs (tailor for each application)
+7. Listing duties instead of achievements
+8. Resume longer than 2 pages (for < 10 years experience)
+9. Including irrelevant personal info (age, marital status)
+10. Inconsistent formatting (dates, font sizes)
+
+SECTION 5: LINKEDIN OPTIMIZATION
+----------------------------------
+1. Professional headshot (7x more profile views)
+2. Headline: not just title, but value proposition
+   Example: "Senior Software Engineer | Python | Distributed Systems | Building Scalable APIs"
+3. About section: written in first person, 3-4 paragraphs, end with call to action
+4. All LinkedIn experience sections should match resume
+5. Request 3-5 specific skill endorsements
+6. Get recommendations from managers/peers
+7. Turn on "Open to Work" (if active job searching)
+8. Engage: share articles, comment on posts, publish insights
+
+SECTION 6: COVER LETTER TEMPLATE
+-----------------------------------
+[Date]
+[Hiring Manager Name / "Hiring Team"]
+[Company Name]
+
+Dear [Name/Team],
+
+Opening paragraph: Strong hook, mention the specific role and why you're excited about this company.
+
+Body paragraph 1: Your most relevant experience/achievement that directly maps to their top requirement.
+
+Body paragraph 2: A second relevant achievement demonstrating cultural/skills fit.
+
+Closing paragraph: Clear call to action, express enthusiasm for next steps.
+
+Regards,
+[Your Name]
+[Contact Info]
+
+Keep it under one page. Customize for each application. Quality over quantity.
+
+SECTION 7: INTERVIEW PREPARATION TIMELINE
+-------------------------------------------
+4 weeks before interview:
+- Research company (products, culture, recent news)
+- Review job description and map your experience to requirements
+- Start coding practice (LeetCode, HackerRank)
+
+2 weeks before:
+- Prepare STAR stories (5-7 behavioral examples)
+- Practice system design (for senior roles)
+- Mock interviews with peers or AI tools
+
+1 week before:
+- Research your interviewers on LinkedIn
+- Prepare smart questions to ask
+- Review the company's tech stack and blog
+
+Day before:
+- Rest well — no cramming
+- Prepare outfit, travel route, required documents
+- Review your own resume thoroughly
+
+Day of:
+- Arrive / log in early
+- Bring water and a notepad
+- Breathe and be yourself

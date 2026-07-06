@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}CareerLift AI{% endblock %}</title>
+  <meta name="description" content="CareerLift AI — Your personal AI-powered interview coach. Dream. Prepare. Shine." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Marked.js for Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Highlight.js for code blocks -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css" id="hljs-theme" />
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/build/highlight.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg cl-navbar sticky-top">
+  <div class="container-fluid px-3">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <div class="cl-logo-icon">
+        <i class="bi bi-lightning-charge-fill"></i>
+      </div>
+      <div>
+        <span class="fw-bold fs-5 cl-brand-text">CareerLift</span>
+        <span class="cl-tagline-small d-none d-md-inline">AI</span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="bi bi-list fs-4 cl-text-muted"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link cl-nav-link {% if request.endpoint == 'main.chat' %}active{% endif %}" href="/chat">
+            <i class="bi bi-chat-dots me-1"></i>AI Coach
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cl-nav-link {% if request.endpoint == 'main.generate' %}active{% endif %}" href="/generate">
+            <i class="bi bi-question-circle me-1"></i>Questions
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cl-nav-link {% if request.endpoint == 'main.mock' %}active{% endif %}" href="/mock">
+            <i class="bi bi-mic me-1"></i>Mock Interview
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cl-nav-link {% if request.endpoint == 'main.resume' %}active{% endif %}" href="/resume">
+            <i class="bi bi-file-person me-1"></i>Resume
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cl-nav-link {% if request.endpoint == 'main.dashboard' %}active{% endif %}" href="/dashboard">
+            <i class="bi bi-bar-chart-line me-1"></i>Dashboard
+          </a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn cl-theme-btn" id="themeToggle" title="Toggle theme">
+          <i class="bi bi-moon-fill" id="themeIcon"></i>
+        </button>
+        <a href="/chat" class="btn cl-cta-btn d-none d-md-inline-flex align-items-center gap-1">
+          <i class="bi bi-lightning-charge-fill"></i> Start Prep
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="cl-main">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="cl-footer mt-auto py-4">
+  <div class="container text-center">
+    <div class="mb-2">
+      <a href="/" class="cl-footer-brand fw-bold">
+        <i class="bi bi-lightning-charge-fill me-1"></i>CareerLift AI
+      </a>
+      <span class="cl-text-muted mx-2">·</span>
+      <span class="cl-text-muted fst-italic small">Dream. Prepare. Shine.</span>
+    </div>
+    <div class="small cl-text-muted">
+      Powered by <strong>IBM watsonx.ai</strong> &amp; <strong>IBM Granite</strong> &middot;
+      Built with Python Flask &amp; Bootstrap 5
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- App JS -->
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

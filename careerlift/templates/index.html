@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% block title %}CareerLift AI — Dream. Prepare. Shine.{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="cl-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-80">
+      <div class="col-lg-7 py-5">
+        <div class="cl-badge mb-3 d-inline-flex align-items-center gap-2">
+          <span class="cl-badge-dot"></span>
+          <span class="small">Powered by IBM Granite &amp; watsonx.ai</span>
+        </div>
+        <h1 class="cl-hero-title">
+          Your AI-Powered<br />
+          <span class="cl-gradient-text">Interview Coach</span>
+        </h1>
+        <p class="cl-hero-subtitle">
+          Land your dream job with personalised interview questions, mock interview sessions,
+          resume analysis, and real-time AI coaching — all powered by IBM Granite.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="/chat" class="btn cl-hero-btn-primary">
+            <i class="bi bi-lightning-charge-fill me-2"></i>Start Interview Prep
+          </a>
+          <a href="/mock" class="btn cl-hero-btn-secondary">
+            <i class="bi bi-mic-fill me-2"></i>Mock Interview
+          </a>
+        </div>
+        <div class="cl-hero-stats mt-5">
+          <div class="cl-stat">
+            <span class="cl-stat-num">50+</span>
+            <span class="cl-stat-label">Interview Types</span>
+          </div>
+          <div class="cl-stat-divider"></div>
+          <div class="cl-stat">
+            <span class="cl-stat-num">5</span>
+            <span class="cl-stat-label">Expert Domains</span>
+          </div>
+          <div class="cl-stat-divider"></div>
+          <div class="cl-stat">
+            <span class="cl-stat-num">AI</span>
+            <span class="cl-stat-label">Real-time Scoring</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center py-5">
+        <div class="cl-hero-visual">
+          <div class="cl-chat-preview">
+            <div class="cl-chat-header">
+              <div class="cl-chat-dot cl-dot-red"></div>
+              <div class="cl-chat-dot cl-dot-yellow"></div>
+              <div class="cl-chat-dot cl-dot-green"></div>
+              <span class="ms-2 small cl-text-muted">CareerLift Coach</span>
+            </div>
+            <div class="cl-chat-body">
+              <div class="cl-chat-msg cl-msg-bot">
+                <div class="cl-chat-avatar bot"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div class="cl-chat-bubble">Hi! I'm your AI interview coach. What role are you targeting? 🚀</div>
+              </div>
+              <div class="cl-chat-msg cl-msg-user">
+                <div class="cl-chat-bubble">Senior Software Engineer at Google</div>
+              </div>
+              <div class="cl-chat-msg cl-msg-bot">
+                <div class="cl-chat-avatar bot"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div class="cl-chat-bubble">
+                  <strong>Question:</strong> Design a distributed rate limiter that handles 1M req/s across multiple data centers...<br/>
+                  <span class="cl-typing-dots"><span></span><span></span><span></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="cl-features py-6">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="cl-section-title">Everything You Need to Ace Your Interview</h2>
+      <p class="cl-section-subtitle">From resume to offer — AI coaching every step of the way</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-blue"><i class="bi bi-chat-dots-fill"></i></div>
+          <h5>AI Interview Coach</h5>
+          <p class="cl-text-muted small">Chat with IBM Granite AI for personalised interview guidance, tips, and answers tailored to your role and experience level.</p>
+          <a href="/chat" class="cl-feature-link">Start chatting <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-purple"><i class="bi bi-question-octagon-fill"></i></div>
+          <h5>Question Generator</h5>
+          <p class="cl-text-muted small">Generate technical, behavioral, HR, and company-specific questions for any role, experience level, and target company.</p>
+          <a href="/generate" class="cl-feature-link">Generate questions <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-green"><i class="bi bi-mic-fill"></i></div>
+          <h5>Mock Interviews</h5>
+          <p class="cl-text-muted small">Practice real interview sessions with AI evaluation, scoring on 5 criteria, and detailed improvement suggestions.</p>
+          <a href="/mock" class="cl-feature-link">Start mock <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-orange"><i class="bi bi-file-person-fill"></i></div>
+          <h5>Resume Analyser</h5>
+          <p class="cl-text-muted small">Upload your PDF/DOCX resume for ATS scoring, keyword analysis, and AI-powered improvement recommendations.</p>
+          <a href="/resume" class="cl-feature-link">Analyse resume <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-teal"><i class="bi bi-map-fill"></i></div>
+          <h5>Prep Roadmaps</h5>
+          <p class="cl-text-muted small">Get personalised week-by-week interview preparation roadmaps with daily tasks, resources, and milestones.</p>
+          <a href="/chat" class="cl-feature-link">Get roadmap <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-feature-card">
+          <div class="cl-feature-icon cl-icon-red"><i class="bi bi-bar-chart-fill"></i></div>
+          <h5>Progress Dashboard</h5>
+          <p class="cl-text-muted small">Track your interview readiness score, practice sessions, mock interview scores, and earned achievement badges.</p>
+          <a href="/dashboard" class="cl-feature-link">View dashboard <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="cl-how py-6">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="cl-section-title">How CareerLift Works</h2>
+      <p class="cl-section-subtitle">Three steps to interview confidence</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="cl-step-card text-center">
+          <div class="cl-step-num">01</div>
+          <div class="cl-step-icon"><i class="bi bi-person-badge-fill"></i></div>
+          <h5>Set Your Profile</h5>
+          <p class="cl-text-muted small">Enter your target role, experience level, and dream company. Optionally upload your resume for personalised analysis.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="cl-step-card text-center">
+          <div class="cl-step-num">02</div>
+          <div class="cl-step-icon"><i class="bi bi-robot"></i></div>
+          <h5>Practice with AI</h5>
+          <p class="cl-text-muted small">Chat with IBM Granite AI, generate questions, practice mock interviews, and get real-time feedback and scoring.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="cl-step-card text-center">
+          <div class="cl-step-num">03</div>
+          <div class="cl-step-icon"><i class="bi bi-trophy-fill"></i></div>
+          <h5>Track & Improve</h5>
+          <p class="cl-text-muted small">Monitor your readiness score, review AI feedback, earn achievement badges, and walk into every interview with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUPPORTED ROLES ===== -->
+<section class="cl-roles py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="cl-section-title">Supported Roles &amp; Companies</h2>
+      <p class="cl-section-subtitle">Tailored prep for every career path</p>
+    </div>
+    <div class="cl-roles-scroll">
+      {% for role in ["Software Engineer","Data Scientist","ML Engineer","Product Manager","DevOps Engineer","Cloud Architect","Business Analyst","Data Analyst","Frontend Developer","Backend Developer","Full Stack Developer","QA Engineer","Cybersecurity Analyst","AI/ML Researcher","Solutions Architect","UX Designer","Engineering Manager"] %}
+      <span class="cl-role-chip">{{ role }}</span>
+      {% endfor %}
+    </div>
+    <div class="cl-company-logos mt-4 justify-content-center d-flex flex-wrap gap-3">
+      {% for company in ["Google","Amazon","Microsoft","Apple","Meta","IBM","Netflix","Salesforce","Adobe","Deloitte","McKinsey","Startup"] %}
+      <span class="cl-company-chip">{{ company }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cl-cta-section py-6">
+  <div class="container text-center">
+    <div class="cl-cta-card">
+      <div class="cl-cta-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
+      <h2 class="mb-3">Ready to Land Your Dream Job?</h2>
+      <p class="cl-text-muted mb-4 fs-5">Join thousands of candidates who've aced their interviews with CareerLift AI</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="/chat" class="btn cl-hero-btn-primary btn-lg">
+          <i class="bi bi-lightning-charge-fill me-2"></i>Start Free Preparation
+        </a>
+        <a href="/mock" class="btn cl-hero-btn-secondary btn-lg">
+          <i class="bi bi-mic-fill me-2"></i>Take Mock Interview
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

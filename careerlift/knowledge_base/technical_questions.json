@@ -1,0 +1,162 @@
+[
+  {
+    "category": "technical",
+    "role": "Software Engineer",
+    "experience": "mid",
+    "question": "Explain the difference between process and thread.",
+    "answer": "A process is an independent execution unit with its own memory space, while a thread is a lightweight subprocess that shares memory with other threads within the same process. Threads within a process can communicate more efficiently but require careful synchronization to avoid race conditions.",
+    "tip": "Use real-world analogies (e.g., a factory = process, workers = threads). Mention context switching cost differences."
+  },
+  {
+    "category": "technical",
+    "role": "Software Engineer",
+    "experience": "mid",
+    "question": "What are the SOLID principles? Explain one with an example.",
+    "answer": "SOLID: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. Example (SRP): A User class should only handle user data, not authentication logic. Authentication should be a separate AuthService class.",
+    "tip": "Pick one principle you know deeply and explain it with code. Relate it to real project challenges."
+  },
+  {
+    "category": "technical",
+    "role": "Data Scientist",
+    "experience": "mid",
+    "question": "How do you handle imbalanced datasets?",
+    "answer": "Techniques include: (1) Resampling (oversampling minority class with SMOTE, undersampling majority), (2) Class weights in model training, (3) Use metrics like F1, precision-recall instead of accuracy, (4) Ensemble methods, (5) Anomaly detection approaches if extreme imbalance.",
+    "tip": "Mention real dataset example where you applied one technique and its impact on model performance."
+  },
+  {
+    "category": "technical",
+    "role": "Data Scientist",
+    "experience": "senior",
+    "question": "Explain the bias-variance tradeoff.",
+    "answer": "Bias is error from overly simplistic models (underfitting), variance is error from overly complex models (overfitting). Goal is to minimize total error = Bias² + Variance + Irreducible Error. Regularization, cross-validation, and ensemble methods help balance this tradeoff.",
+    "tip": "Draw a U-curve diagram mentally and explain where different models sit. Use an example like linear regression vs deep neural network."
+  },
+  {
+    "category": "technical",
+    "role": "DevOps Engineer",
+    "experience": "mid",
+    "question": "What is the difference between Docker and Virtual Machines?",
+    "answer": "VMs virtualize hardware and run full OS instances (hypervisor-based), leading to higher overhead. Docker containers share the host OS kernel and package only app dependencies, making them lightweight, fast to start, and portable. Docker is better for microservices; VMs for OS-level isolation.",
+    "tip": "Mention real use case: deploying 10 containers vs 10 VMs in production and the resource difference."
+  },
+  {
+    "category": "technical",
+    "role": "Full Stack Developer",
+    "experience": "mid",
+    "question": "How does RESTful API differ from GraphQL?",
+    "answer": "REST uses multiple endpoints (one per resource) and may require multiple requests for related data (over-fetching/under-fetching). GraphQL uses a single endpoint where clients specify exactly what data they need in one query, reducing round trips and payload size. GraphQL is better for complex, nested data; REST is simpler for CRUD operations.",
+    "tip": "Mention a project where you used one or both. Highlight tradeoffs like caching (REST easier) vs flexibility (GraphQL)."
+  },
+  {
+    "category": "technical",
+    "role": "Frontend Developer",
+    "experience": "mid",
+    "question": "Explain event delegation in JavaScript.",
+    "answer": "Event delegation leverages event bubbling: instead of attaching listeners to many child elements, you attach one listener to a parent. The parent checks event.target to determine which child triggered the event. Benefits: fewer listeners (better performance), works for dynamically added children.",
+    "tip": "Provide a code snippet example (e.g., handling clicks on a list of items). Mention performance gains in large DOM trees."
+  },
+  {
+    "category": "technical",
+    "role": "Backend Developer",
+    "experience": "senior",
+    "question": "How would you design a URL shortener like bit.ly?",
+    "answer": "Requirements: shorten URLs, redirect to original, analytics. Design: (1) Generate unique short code (base62 encoding of auto-increment ID or hash), (2) Store mapping in database (NoSQL for scale), (3) Use caching (Redis) for popular URLs, (4) Handle collisions with collision resolution or check-and-retry, (5) Track analytics asynchronously (message queue).",
+    "tip": "Discuss scale: millions of URLs, read-heavy workload, caching strategy, database sharding if needed."
+  },
+  {
+    "category": "technical",
+    "role": "ML Engineer",
+    "experience": "mid",
+    "question": "What is overfitting and how do you prevent it?",
+    "answer": "Overfitting occurs when a model learns noise in training data, performing well on training but poorly on unseen data. Prevention: (1) More training data, (2) Regularization (L1/L2), (3) Cross-validation, (4) Early stopping, (5) Dropout (for neural nets), (6) Simpler model architecture, (7) Data augmentation.",
+    "tip": "Relate to a real project where you detected overfitting (training vs validation loss curves) and fixed it."
+  },
+  {
+    "category": "technical",
+    "role": "Cloud Architect",
+    "experience": "senior",
+    "question": "Explain the CAP theorem and its implications for distributed databases.",
+    "answer": "CAP: Consistency, Availability, Partition Tolerance. You can only guarantee 2 of 3. In practice, network partitions are unavoidable (P is required), so you trade off C vs A. CP systems (e.g., HBase) sacrifice availability during partitions. AP systems (e.g., Cassandra) sacrifice strong consistency for availability. Choose based on use case: financial transactions need C, social feeds tolerate eventual consistency.",
+    "tip": "Give real examples: banking (CP), social media feed (AP). Mention strategies like quorum reads/writes."
+  },
+  {
+    "category": "technical",
+    "role": "Software Engineer",
+    "experience": "fresher",
+    "question": "What is the difference between == and === in JavaScript?",
+    "answer": "== performs type coercion before comparison (e.g., '5' == 5 is true), while === checks both value and type (strict equality, '5' === 5 is false). Best practice: always use === to avoid unexpected type coercion bugs.",
+    "tip": "Provide an example where == causes a bug and === prevents it. Mention modern linters enforce ===."
+  },
+  {
+    "category": "technical",
+    "role": "QA Engineer",
+    "experience": "mid",
+    "question": "What is the difference between functional and non-functional testing?",
+    "answer": "Functional testing verifies the system behaves per specifications (e.g., login works, API returns correct data). Non-functional testing checks quality attributes like performance (load testing), security (penetration testing), usability, reliability, and scalability.",
+    "tip": "Mention tools: Selenium (functional), JMeter (performance), OWASP ZAP (security)."
+  },
+  {
+    "category": "technical",
+    "role": "Cybersecurity Analyst",
+    "experience": "mid",
+    "question": "Explain SQL injection and how to prevent it.",
+    "answer": "SQL injection occurs when untrusted user input is concatenated into SQL queries, allowing attackers to execute arbitrary SQL (e.g., ' OR '1'='1). Prevention: (1) Use parameterized queries/prepared statements, (2) Input validation and sanitization, (3) Principle of least privilege for DB user, (4) ORM frameworks, (5) WAF rules.",
+    "tip": "Show a vulnerable vs secure code example. Mention OWASP Top 10."
+  },
+  {
+    "category": "technical",
+    "role": "Data Analyst",
+    "experience": "mid",
+    "question": "Explain the difference between INNER JOIN and LEFT JOIN.",
+    "answer": "INNER JOIN returns only rows with matching values in both tables. LEFT JOIN returns all rows from the left table, and matched rows from the right (NULL if no match). Use LEFT JOIN when you want all records from one table regardless of matches.",
+    "tip": "Draw a Venn diagram mentally or explain with a real table example (e.g., customers and orders)."
+  },
+  {
+    "category": "technical",
+    "role": "Product Manager",
+    "experience": "mid",
+    "question": "How would you prioritize features for a new product?",
+    "answer": "Use frameworks like RICE (Reach, Impact, Confidence, Effort), MoSCoW (Must/Should/Could/Won't), or Kano model. Steps: (1) Gather inputs (user research, business goals, technical constraints), (2) Score each feature, (3) Balance quick wins vs strategic bets, (4) Validate with stakeholders, (5) Iterate based on feedback and data.",
+    "tip": "Share a real example where you prioritized features and the outcome. Mention alignment with company OKRs."
+  },
+  {
+    "category": "technical",
+    "role": "Software Engineer",
+    "experience": "senior",
+    "question": "How do you ensure code quality in a large team?",
+    "answer": "Strategies: (1) Code reviews (peer review every PR), (2) Automated testing (unit, integration, e2e), (3) CI/CD pipeline with linting and static analysis, (4) Coding standards and style guides, (5) Pair programming for complex features, (6) Regular refactoring, (7) Documentation and knowledge sharing, (8) Metrics (test coverage, code complexity).",
+    "tip": "Mention tools you've used: SonarQube, ESLint, GitHub Actions. Share a story where code review caught a critical bug."
+  },
+  {
+    "category": "technical",
+    "role": "Full Stack Developer",
+    "experience": "senior",
+    "question": "Design a real-time chat application architecture.",
+    "answer": "Components: (1) WebSocket server (Node.js + Socket.io or Go), (2) Message broker (Redis Pub/Sub or Kafka) for scaling, (3) Database (Cassandra/MongoDB for messages, Redis for online users), (4) Load balancer with sticky sessions, (5) CDN for static assets, (6) Authentication (JWT), (7) Rate limiting, (8) Offline message queue. Consider scaling: horizontal scaling of WS servers, message persistence, read receipts.",
+    "tip": "Discuss tradeoffs: polling vs WebSockets, eventual consistency in distributed system. Mention handling reconnections."
+  },
+  {
+    "category": "technical",
+    "role": "AI/ML Researcher",
+    "experience": "expert",
+    "question": "Explain attention mechanism in transformers.",
+    "answer": "Attention allows models to focus on relevant parts of input when processing each token. In transformers, self-attention computes attention scores (Q·K^T / sqrt(d_k)), applies softmax, then weights values (V). Multi-head attention runs this in parallel with different learned projections, capturing diverse relationships. This enables parallelization (unlike RNNs) and long-range dependencies without vanishing gradients.",
+    "tip": "Draw or explain the Q, K, V matrices. Mention applications: BERT, GPT, Vision Transformers. Reference original 'Attention is All You Need' paper."
+  },
+  {
+    "category": "technical",
+    "role": "Solutions Architect",
+    "experience": "senior",
+    "question": "How do you design for high availability and disaster recovery?",
+    "answer": "HA: (1) Redundancy (multi-AZ, multi-region), (2) Load balancing, (3) Auto-scaling, (4) Health checks and failover, (5) Stateless services, (6) Database replication. DR: (1) Define RPO (Recovery Point Objective) and RTO (Recovery Time Objective), (2) Regular backups (automated, encrypted), (3) DR site (cold/warm/hot standby), (4) Runbooks and regular DR drills, (5) Monitoring and alerting.",
+    "tip": "Mention AWS tools: Route 53 (health checks), RDS Multi-AZ, S3 cross-region replication. Share a DR test story."
+  },
+  {
+    "category": "technical",
+    "role": "Engineering Manager",
+    "experience": "senior",
+    "question": "How do you handle technical debt in a fast-paced startup?",
+    "answer": "Balance velocity with sustainability: (1) Track tech debt in backlog with priority, (2) Allocate 10-20% sprint capacity for debt reduction, (3) Prevent new debt via code reviews and standards, (4) Categorize debt by impact (critical, high, low), (5) Communicate cost of debt to stakeholders, (6) Refactor incrementally, not big-bang, (7) Automate where possible (tests, CI/CD).",
+    "tip": "Share a specific example where tech debt caused a production issue and how you addressed it. Mention balancing feature delivery with quality."
+  }
+]

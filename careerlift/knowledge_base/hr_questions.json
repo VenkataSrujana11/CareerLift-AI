@@ -1,0 +1,74 @@
+[
+  {
+    "category": "hr",
+    "question": "Tell me about yourself.",
+    "answer": "Structure: Present (current role/experience), Past (background that led here), Future (why this role/company excites you). Keep it 2 minutes, professional, and tailored to the role. Example: 'I'm a software engineer with 5 years in backend development, specializing in Python and distributed systems. I've led API development at [Company] serving 2M users. I'm excited about this role because of your focus on ML infrastructure, which aligns perfectly with my experience in...'",
+    "tip": "Practice a 90-second version. End with why you're interested in THIS specific company/role."
+  },
+  {
+    "category": "hr",
+    "question": "Why do you want to work here?",
+    "answer": "Research: company mission, recent news, tech stack, culture, products. Show genuine interest. Example: 'I admire how [Company] is pioneering [technology/mission]. Your engineering blog posts on distributed systems show a culture of technical excellence. I want to contribute to [specific product] and grow in an environment that values [specific value].'",
+    "tip": "Never say salary or job security. Research 3 specific things about the company and weave them in."
+  },
+  {
+    "category": "hr",
+    "question": "Why are you leaving your current job?",
+    "answer": "Keep it positive. Never badmouth your employer. Acceptable answers: seeking new challenges, career growth, learning new technologies, relocation, company restructuring. Example: 'I've had a great experience at my current company, but I've reached a natural plateau. I'm looking for a role that offers more challenges in [specific area] and an opportunity to work on [product type].'",
+    "tip": "Never complain about salary, boss, or colleagues. Frame it as growth-driven, not escape-driven."
+  },
+  {
+    "category": "hr",
+    "question": "Where do you see yourself in 5 years?",
+    "answer": "Show ambition aligned with the company's growth path. Example: 'In 5 years, I see myself as a senior engineer leading a team and contributing to technical strategy. I'm excited about the ML space and hope to develop deep expertise there. I see [Company] as the ideal place given your growth trajectory.'",
+    "tip": "Align your goals with what the role can offer. Show loyalty and ambition without claiming you want their CEO's job."
+  },
+  {
+    "category": "hr",
+    "question": "What are your greatest strengths?",
+    "answer": "Choose 3 strengths relevant to the role. Back each with a brief example. Example: '(1) Problem-solving — I approach complex bugs systematically, once identified a memory leak that had stumped the team for weeks. (2) Communication — I bridge technical and non-technical stakeholders effectively. (3) Fast learner — I picked up Kubernetes in 2 weeks to unblock a critical project.'",
+    "tip": "Be specific, not generic. Don't just say 'I'm a hard worker.' Provide evidence."
+  },
+  {
+    "category": "hr",
+    "question": "What are your weaknesses?",
+    "answer": "Be honest but show self-awareness and growth. Example: 'I used to struggle with delegation — I preferred doing things myself to ensure quality. I recognized this was limiting the team's growth and my scalability as a lead. I've since deliberately assigned ownership to team members and focused on mentoring, which has actually improved code quality because others bring fresh perspectives.'",
+    "tip": "Avoid fake weaknesses like 'I work too hard.' Pick a real weakness you've actively improved."
+  },
+  {
+    "category": "hr",
+    "question": "How do you handle stress and pressure?",
+    "answer": "Show structured coping strategies. Example: 'I work well under pressure. I break large problems into manageable tasks, prioritize ruthlessly, communicate proactively about blockers, and avoid context-switching. When facing a critical incident last year, I stayed calm, led a focused incident call, and we resolved a P0 outage in 45 minutes.'",
+    "tip": "Provide a real example. Show that you maintain quality under pressure, not just survive it."
+  },
+  {
+    "category": "hr",
+    "question": "What motivates you?",
+    "answer": "Be authentic and role-relevant. Examples: solving complex technical challenges, shipping products used by millions, mentoring junior developers, continuous learning, cross-functional collaboration. 'I'm most motivated when I can see direct impact of my work. Building a feature that thousands of users rely on daily gives me genuine satisfaction. I also love the continuous learning aspect of this industry.'",
+    "tip": "Align your motivation with what the company actually offers. Research their work culture."
+  },
+  {
+    "category": "hr",
+    "question": "How do you handle feedback and criticism?",
+    "answer": "Show maturity and growth mindset. 'I genuinely welcome feedback as a tool for growth. I listen actively, ask clarifying questions, reflect on whether the feedback is valid, and create an action plan. I once received feedback that my code reviews were too harsh — I took it seriously, read about constructive feedback, changed my approach, and it improved team morale significantly.'",
+    "tip": "Avoid defensiveness in your answer. Show a specific instance where you acted on feedback."
+  },
+  {
+    "category": "hr",
+    "question": "What are your salary expectations?",
+    "answer": "Research market rates (Glassdoor, LinkedIn, levels.fyi). Provide a range based on research. 'Based on my research and the responsibilities of this role, I'm targeting between $X and $Y. I'm also open to a holistic discussion about the total compensation package including equity, benefits, and growth opportunities.'",
+    "tip": "Research beforehand. Give a range, not a point. Never be the first to anchor if you can help it."
+  },
+  {
+    "category": "hr",
+    "question": "Do you have any questions for us?",
+    "answer": "Always ask 2-3 thoughtful questions. Avoid: salary/benefits (too early), obvious info from website. Good questions: 'What does success look like in the first 90 days?', 'What are the biggest challenges the team is facing?', 'How do you support continuous learning and career growth?', 'What do you enjoy most about working here?'",
+    "tip": "Prepare 5 questions so you have backups. Asking thoughtful questions shows genuine interest and preparation."
+  },
+  {
+    "category": "hr",
+    "question": "Tell me about a time you showed leadership without a formal title.",
+    "answer": "Situation: Team was unclear on priorities mid-project. Task: Get alignment. Action: Organized impromptu planning session, created shared doc with priorities, facilitated discussion, got consensus. Result: Team delivered sprint on time, manager recognized the initiative. 'I believe leadership is about enabling your team to succeed, not the title on your card.'",
+    "tip": "Leadership moments are everywhere: organizing a team event, documenting processes, onboarding new hires."
+  }
+]

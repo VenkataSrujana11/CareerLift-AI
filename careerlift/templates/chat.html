@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}AI Coach — CareerLift{% endblock %}
+
+{% block content %}
+<div class="cl-chat-page d-flex flex-column" style="height: calc(100vh - 62px);">
+
+  <!-- Chat Header -->
+  <div class="cl-chat-page-header d-flex align-items-center gap-3 px-4 py-3">
+    <div class="cl-avatar-large">
+      <i class="bi bi-lightning-charge-fill"></i>
+    </div>
+    <div>
+      <h6 class="mb-0 fw-bold">CareerLift Coach</h6>
+      <small class="cl-text-muted">IBM Granite · RAG Enhanced</small>
+    </div>
+    <div class="ms-auto d-flex gap-2">
+      <!-- Profile Quick Set -->
+      <button class="btn cl-icon-btn" data-bs-toggle="modal" data-bs-target="#profileModal" title="Set Profile">
+        <i class="bi bi-person-gear"></i>
+      </button>
+      <button class="btn cl-icon-btn" id="clearChatBtn" title="Clear Chat">
+        <i class="bi bi-trash3"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chat Messages -->
+  <div class="cl-chat-messages flex-grow-1 overflow-auto px-3 py-3" id="chatMessages">
+    <!-- Initial AI greeting injected by JS -->
+  </div>
+
+  <!-- Typing Indicator -->
+  <div class="cl-typing-indicator px-4 py-1 d-none" id="typingIndicator">
+    <div class="cl-typing-avatar"><i class="bi bi-lightning-charge-fill"></i></div>
+    <div class="cl-typing-bubble">
+      <span class="cl-typing-dots"><span></span><span></span><span></span></span>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="cl-quick-actions px-4 py-2 d-flex gap-2 flex-wrap">
+    <button class="btn cl-quick-btn" data-prompt="Give me 5 technical interview questions for my role">🎯 Technical Qs</button>
+    <button class="btn cl-quick-btn" data-prompt="Give me behavioral interview questions using STAR method">🤝 Behavioral Qs</button>
+    <button class="btn cl-quick-btn" data-prompt="Create a 4-week interview preparation roadmap for me">🗺️ Prep Roadmap</button>
+    <button class="btn cl-quick-btn" data-prompt="What are the top 10 HR interview questions and answers?">💼 HR Questions</button>
+    <button class="btn cl-quick-btn" data-prompt="Give me tips for salary negotiation">💰 Salary Tips</button>
+  </div>
+
+  <!-- Input Area -->
+  <div class="cl-chat-input-area px-4 py-3">
+    <div class="cl-input-wrapper">
+      <textarea
+        id="chatInput"
+        class="cl-chat-textarea"
+        placeholder="Ask me anything about interview prep... (Shift+Enter for new line)"
+        rows="1"
+        maxlength="2000"
+      ></textarea>
+      <button class="btn cl-send-btn" id="sendBtn" title="Send">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+    <div class="d-flex justify-content-between mt-1">
+      <small class="cl-text-muted">
+        Profile:
+        <span id="profileDisplay" class="cl-accent-text fw-semibold">
+          {{ profile.experience or 'mid' }}-level {{ profile.role or 'Software Engineer' }}
+          {% if profile.company %} · {{ profile.company }}{% endif %}
+        </span>
+      </small>
+      <small class="cl-text-muted" id="charCount">0 / 2000</small>
+    </div>
+  </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cl-modal">
+      <div class="modal-header border-0">
+        <h5 class="modal-title"><i class="bi bi-person-gear me-2"></i>Your Interview Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Target Role</label>
+          <input type="text" id="profileRole" class="form-control cl-input"
+                 placeholder="e.g. Software Engineer"
+                 value="{{ profile.role or 'Software Engineer' }}" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Experience Level</label>
+          <select id="profileExp" class="form-select cl-input">
+            <option value="fresher" {% if profile.experience == 'fresher' %}selected{% endif %}>Fresher (0-1 yr)</option>
+            <option value="mid" {% if profile.experience == 'mid' or not profile.experience %}selected{% endif %}>Mid-Level (2-5 yr)</option>
+            <option value="senior" {% if profile.experience == 'senior' %}selected{% endif %}>Senior (5-10 yr)</option>
+            <option value="expert" {% if profile.experience == 'expert' %}selected{% endif %}>Expert (10+ yr)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Target Company <span class="cl-text-muted">(optional)</span></label>
+          <input type="text" id="profileCompany" class="form-control cl-input"
+                 placeholder="e.g. Google, Amazon, IBM..."
+                 value="{{ profile.company or '' }}" />
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn cl-hero-btn-primary w-100" id="saveProfileBtn">
+          <i class="bi bi-check2 me-1"></i>Save Profile
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const WELCOME_MSG = `{{ welcome_message | replace('`', "'") | replace('\n', '\\n') }}`;
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.CareerLift) {
+    window.CareerLift.chat.init(WELCOME_MSG);
+  }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,74 @@
+[
+  {
+    "category": "behavioral",
+    "question": "Tell me about a time you faced a conflict with a team member. How did you resolve it?",
+    "answer": "Situation: Disagreed with a colleague on API design. Task: Needed consensus to move forward. Action: Scheduled 1:1, listened to their concerns, found common ground (hybrid approach), documented decision. Result: Shipped on time, improved relationship, learned to address conflicts early.",
+    "tip": "Use STAR format (Situation, Task, Action, Result). Show empathy, active listening, and focus on resolution."
+  },
+  {
+    "category": "behavioral",
+    "question": "Describe a challenging project you worked on. What made it challenging and how did you overcome it?",
+    "answer": "Situation: Tight 6-week deadline for new feature with legacy codebase. Task: Deliver without breaking existing functionality. Action: Broke down into milestones, wrote comprehensive tests, daily stand-ups, pair programming for risky parts. Result: Launched on time, zero critical bugs, 95% test coverage.",
+    "tip": "Emphasize problem-solving, teamwork, and measurable outcomes. Show you thrive under pressure."
+  },
+  {
+    "category": "behavioral",
+    "question": "Tell me about a time you failed. What did you learn?",
+    "answer": "Situation: Underestimated migration complexity, missed deadline by 2 weeks. Task: Migrate database to new schema. Action (Reflection): Should have done proof-of-concept first, involved DBA earlier. Learning: Now I do risk assessment and spike for unknowns. Result: Applied learning to next project, delivered early.",
+    "tip": "Be honest but focus on growth. Show self-awareness and proactive improvement."
+  },
+  {
+    "category": "behavioral",
+    "question": "Give an example of when you took initiative without being asked.",
+    "answer": "Situation: Noticed team spending hours on manual deployments. Task: Improve efficiency. Action: Built CI/CD pipeline on weekends, presented to team, got buy-in, deployed. Result: Deployment time reduced from 2 hours to 10 minutes, team adopted immediately.",
+    "tip": "Highlight proactivity, ownership, and impact. Show you go beyond your job description."
+  },
+  {
+    "category": "behavioral",
+    "question": "How do you handle tight deadlines and multiple priorities?",
+    "answer": "Situation: Juggling 3 projects with overlapping deadlines. Task: Deliver all on time. Action: Prioritized by business impact, communicated trade-offs to stakeholders, delegated where possible, time-boxed tasks, worked focused hours. Result: Delivered 2 on time, negotiated 1-week extension for third (acceptable to stakeholders).",
+    "tip": "Show prioritization skills, communication, and realistic expectation setting."
+  },
+  {
+    "category": "behavioral",
+    "question": "Describe a time you had to learn a new technology quickly.",
+    "answer": "Situation: Project required Kubernetes, which I hadn't used. Task: Deploy microservices in 3 weeks. Action: Took online course (weekend), built POC, asked DevOps team for mentorship, read docs daily. Result: Successfully deployed, became team's k8s go-to person.",
+    "tip": "Demonstrate fast learning, resourcefulness, and willingness to upskill."
+  },
+  {
+    "category": "behavioral",
+    "question": "Tell me about a time you received critical feedback. How did you respond?",
+    "answer": "Situation: Manager said my code reviews were too harsh. Task: Improve communication style. Action: Reflected on feedback, read articles on constructive feedback, started framing suggestions positively ('What if we...' instead of 'This is wrong'), asked for follow-up feedback. Result: Improved team morale, became known for helpful reviews.",
+    "tip": "Show you welcome feedback, reflect, and take action. Avoid defensiveness."
+  },
+  {
+    "category": "behavioral",
+    "question": "Give an example of a decision you made with incomplete information.",
+    "answer": "Situation: Had to choose database (SQL vs NoSQL) with unclear long-term scale requirements. Task: Make decision to unblock project. Action: Evaluated pros/cons, consulted architect, chose SQL (easier to start, can migrate later), documented risks. Result: Right choice for MVP, scaled to 100k users, no migration needed yet.",
+    "tip": "Show risk assessment, consultation, and pragmatic decision-making under uncertainty."
+  },
+  {
+    "category": "behavioral",
+    "question": "Describe a time you improved a process or workflow.",
+    "answer": "Situation: Code review backlog slowing releases. Task: Speed up reviews. Action: Proposed review rotation, set SLA (reviews within 4 hours), created review checklist, automated linting. Result: Average review time dropped from 2 days to 4 hours, happier developers.",
+    "tip": "Highlight process thinking, collaboration, and measurable improvement."
+  },
+  {
+    "category": "behavioral",
+    "question": "Tell me about a time you mentored or helped a junior team member.",
+    "answer": "Situation: Junior dev struggling with debugging skills. Task: Help them become self-sufficient. Action: Paired for a week, taught debugging techniques (binary search, logging, rubber duck), shared resources, gave them progressively harder bugs. Result: Within a month, they were confidently debugging and helping others.",
+    "tip": "Show patience, teaching ability, and investment in team growth."
+  },
+  {
+    "category": "behavioral",
+    "question": "Describe a situation where you disagreed with your manager. How did you handle it?",
+    "answer": "Situation: Manager wanted to skip testing phase to meet deadline. Task: Express concerns without being insubordinate. Action: Presented data (past bugs caught in testing), proposed compromise (automated smoke tests), escalated risks. Result: Manager agreed to 2-day testing window, caught 3 critical bugs.",
+    "tip": "Show respectful disagreement, data-driven arguments, and willingness to find middle ground."
+  },
+  {
+    "category": "behavioral",
+    "question": "Tell me about a time you had to work with a difficult stakeholder.",
+    "answer": "Situation: Stakeholder kept changing requirements mid-sprint. Task: Deliver project while managing expectations. Action: Scheduled weekly alignment meetings, created shared roadmap, explained impact of changes, proposed phased delivery. Result: Relationship improved, fewer mid-sprint changes, delivered core features on time.",
+    "tip": "Highlight communication, empathy, and setting boundaries professionally."
+  }
+]

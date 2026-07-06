@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}Mock Interview — CareerLift{% endblock %}
+
+{% block content %}
+<div class="container-lg py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+
+      <!-- Header -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="cl-page-icon"><i class="bi bi-mic-fill"></i></div>
+        <div>
+          <h2 class="mb-0 fw-bold">Mock Interview</h2>
+          <p class="cl-text-muted mb-0 small">Interactive AI-powered interview simulation with real-time scoring</p>
+        </div>
+      </div>
+
+      <!-- Setup Panel -->
+      <div class="cl-card mb-4" id="setupPanel">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-sliders me-2"></i>Interview Setup</h6>
+        </div>
+        <div class="cl-card-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Target Role</label>
+              <input type="text" id="mockRole" class="form-control cl-input"
+                     placeholder="e.g. Software Engineer"
+                     value="{{ profile.role or 'Software Engineer' }}" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Experience Level</label>
+              <select id="mockExp" class="form-select cl-input">
+                <option value="fresher">Fresher (0-1 yr)</option>
+                <option value="mid" selected>Mid-Level (2-5 yr)</option>
+                <option value="senior">Senior (5-10 yr)</option>
+                <option value="expert">Expert (10+ yr)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Interview Type</label>
+              <select id="mockType" class="form-select cl-input">
+                <option value="technical">Technical</option>
+                <option value="behavioral">Behavioral</option>
+                <option value="hr">HR / Culture Fit</option>
+                <option value="coding">Coding / Algorithms</option>
+                <option value="company_specific">Company Specific</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Target Company <span class="cl-text-muted">(optional)</span></label>
+              <input type="text" id="mockCompany" class="form-control cl-input"
+                     placeholder="e.g. Google, Amazon..."
+                     value="{{ profile.company or '' }}" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Number of Questions</label>
+              <select id="mockCount" class="form-select cl-input">
+                <option value="3">3 Questions (Quick)</option>
+                <option value="5" selected>5 Questions (Standard)</option>
+                <option value="8">8 Questions (Full)</option>
+                <option value="10">10 Questions (Intensive)</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-4">
+            <button class="btn cl-hero-btn-primary" id="startMockBtn">
+              <i class="bi bi-play-fill me-2"></i>Start Mock Interview
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview Panel (hidden initially) -->
+      <div id="interviewPanel" class="d-none">
+
+        <!-- Progress Bar -->
+        <div class="cl-card mb-3">
+          <div class="cl-card-body py-2">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <small class="fw-semibold">Question <span id="currentQNum">1</span> of <span id="totalQNum">5</span></small>
+              <small class="cl-text-muted" id="mockTypeLabel">Technical Interview</small>
+            </div>
+            <div class="progress cl-progress" style="height: 6px;">
+              <div class="progress-bar cl-progress-bar" id="mockProgress" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="cl-card mb-3" id="questionCard">
+          <div class="cl-card-header d-flex align-items-center gap-2">
+            <div class="cl-avatar-small"><i class="bi bi-lightning-charge-fill"></i></div>
+            <span class="fw-semibold">CareerLift Coach</span>
+            <span class="cl-badge-inline ms-auto" id="qTypeBadge">Technical</span>
+          </div>
+          <div class="cl-card-body">
+            <div id="questionLoading" class="text-center py-4 d-none">
+              <div class="cl-spinner mb-2"></div>
+              <p class="cl-text-muted">Generating question...</p>
+            </div>
+            <div id="questionText" class="cl-question-text"></div>
+          </div>
+        </div>
+
+        <!-- Answer Input -->
+        <div class="cl-card mb-3" id="answerCard">
+          <div class="cl-card-header">
+            <span class="fw-semibold"><i class="bi bi-pencil-square me-2"></i>Your Answer</span>
+          </div>
+          <div class="cl-card-body">
+            <textarea id="mockAnswer" class="form-control cl-input" rows="6"
+                      placeholder="Type your answer here... Take your time, think through the problem systematically."></textarea>
+            <div class="d-flex gap-2 mt-3 flex-wrap">
+              <button class="btn cl-hero-btn-primary" id="submitAnswerBtn">
+                <i class="bi bi-send-fill me-2"></i>Submit Answer
+              </button>
+              <button class="btn cl-hero-btn-secondary" id="skipBtn">
+                <i class="bi bi-skip-forward me-2"></i>Skip
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Panel -->
+        <div class="cl-card mb-3 d-none" id="evalCard">
+          <div class="cl-card-header d-flex align-items-center gap-2">
+            <i class="bi bi-stars cl-accent-text"></i>
+            <span class="fw-semibold">AI Evaluation</span>
+            <div class="ms-auto" id="scoreDisplay"></div>
+          </div>
+          <div class="cl-card-body">
+            <div id="evaluationLoading" class="text-center py-4 d-none">
+              <div class="cl-spinner mb-2"></div>
+              <p class="cl-text-muted">Evaluating your answer...</p>
+            </div>
+            <div id="evaluationText" class="cl-eval-text"></div>
+          </div>
+          <div class="cl-card-footer">
+            <button class="btn cl-hero-btn-primary" id="nextQuestionBtn">
+              <i class="bi bi-arrow-right me-2"></i>Next Question
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Panel (hidden initially) -->
+      <div id="resultsPanel" class="d-none">
+        <div class="cl-card">
+          <div class="cl-card-header text-center">
+            <div class="cl-trophy-icon mb-2"><i class="bi bi-trophy-fill"></i></div>
+            <h4 class="fw-bold mb-0">Interview Complete!</h4>
+          </div>
+          <div class="cl-card-body text-center">
+            <div class="cl-score-circle mb-4" id="finalScoreCircle">
+              <span id="finalScore">0</span>
+              <small>/100</small>
+            </div>
+            <p class="cl-text-muted" id="scoreMessage"></p>
+            <div class="row g-3 mt-2" id="questionScores"></div>
+          </div>
+          <div class="cl-card-footer d-flex gap-3 justify-content-center flex-wrap">
+            <button class="btn cl-hero-btn-primary" id="retryBtn">
+              <i class="bi bi-arrow-counterclockwise me-2"></i>Try Again
+            </button>
+            <a href="/dashboard" class="btn cl-hero-btn-secondary">
+              <i class="bi bi-bar-chart-line me-2"></i>View Dashboard
+            </a>
+            <a href="/chat" class="btn cl-hero-btn-secondary">
+              <i class="bi bi-chat-dots me-2"></i>Chat with Coach
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.CareerLift) {
+    window.CareerLift.mock.init();
+  }
+});
+</script>
+{% endblock %}

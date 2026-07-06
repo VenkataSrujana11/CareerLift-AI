@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Resume Analyser — CareerLift{% endblock %}
+
+{% block content %}
+<div class="container-lg py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="cl-page-icon"><i class="bi bi-file-person-fill"></i></div>
+        <div>
+          <h2 class="mb-0 fw-bold">Resume Analyser</h2>
+          <p class="cl-text-muted mb-0 small">AI-powered ATS scoring, keyword analysis &amp; improvement recommendations</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Upload Card -->
+        <div class="col-md-5">
+          <div class="cl-card">
+            <div class="cl-card-header">
+              <h6 class="mb-0 fw-bold"><i class="bi bi-upload me-2"></i>Upload Resume</h6>
+            </div>
+            <div class="cl-card-body">
+              <div class="cl-dropzone" id="dropzone">
+                <div class="cl-dropzone-icon"><i class="bi bi-file-earmark-person"></i></div>
+                <p class="fw-semibold mb-1">Drag &amp; drop your resume</p>
+                <p class="cl-text-muted small mb-3">or click to browse</p>
+                <p class="cl-text-muted small">Supports PDF and DOCX · Max 10MB</p>
+                <input type="file" id="resumeFile" class="d-none" accept=".pdf,.docx,.doc" />
+              </div>
+              <div class="cl-upload-info d-none mt-3" id="uploadInfo">
+                <div class="d-flex align-items-center gap-2 cl-file-chip">
+                  <i class="bi bi-file-earmark-text cl-accent-text"></i>
+                  <span id="fileName" class="fw-semibold small"></span>
+                  <button class="btn btn-sm ms-auto" id="removeFile">
+                    <i class="bi bi-x cl-text-muted"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mt-3 d-none" id="parseResults">
+                <div class="cl-parse-stats">
+                  <div class="cl-parse-stat">
+                    <span class="cl-stat-num" id="wordCount">0</span>
+                    <span class="cl-stat-label small">Words</span>
+                  </div>
+                  <div class="cl-parse-stat">
+                    <span class="cl-stat-num" id="sectionsCount">0</span>
+                    <span class="cl-stat-label small">Sections</span>
+                  </div>
+                  <div class="cl-parse-stat">
+                    <span class="cl-stat-num" id="skillsCount">0</span>
+                    <span class="cl-stat-label small">Skills</span>
+                  </div>
+                </div>
+                <div id="qualityFlags" class="mt-2"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OR Manual Input -->
+          <div class="cl-card mt-3">
+            <div class="cl-card-header">
+              <h6 class="mb-0 fw-bold"><i class="bi bi-pencil-square me-2"></i>Or Paste Resume Text</h6>
+            </div>
+            <div class="cl-card-body">
+              <textarea id="resumeText" class="form-control cl-input" rows="8"
+                        placeholder="Paste your resume content here..."></textarea>
+            </div>
+          </div>
+
+          <!-- Role for Analysis -->
+          <div class="cl-card mt-3">
+            <div class="cl-card-body">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Target Role</label>
+                <input type="text" id="resumeRole" class="form-control cl-input"
+                       placeholder="e.g. Software Engineer" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Experience Level</label>
+                <select id="resumeExp" class="form-select cl-input">
+                  <option value="fresher">Fresher</option>
+                  <option value="mid" selected>Mid-Level</option>
+                  <option value="senior">Senior</option>
+                  <option value="expert">Expert</option>
+                </select>
+              </div>
+              <button class="btn cl-hero-btn-primary w-100" id="analyseBtn" disabled>
+                <i class="bi bi-stars me-2"></i>Analyse Resume
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <div class="col-md-7">
+          <!-- Placeholder -->
+          <div class="cl-placeholder-card text-center py-5" id="resumePlaceholder">
+            <div class="cl-placeholder-icon mb-3"><i class="bi bi-file-person"></i></div>
+            <h5>Upload Your Resume</h5>
+            <p class="cl-text-muted">Upload a PDF/DOCX or paste resume text to get AI-powered ATS scoring and improvement tips.</p>
+          </div>
+
+          <!-- Loading -->
+          <div class="text-center py-5 d-none" id="resumeLoading">
+            <div class="cl-spinner-lg mb-3"></div>
+            <p class="cl-text-muted fs-5">Analysing your resume with IBM Granite...</p>
+            <small class="cl-text-muted">Checking ATS compatibility, keywords, and structure</small>
+          </div>
+
+          <!-- Results -->
+          <div class="d-none" id="resumeResults">
+            <h5 class="fw-bold mb-3">
+              <i class="bi bi-stars cl-accent-text me-2"></i>Resume Analysis
+            </h5>
+            <div id="resumeAnalysisContent" class="cl-analysis-content"></div>
+            <div class="mt-4 d-flex gap-2 flex-wrap">
+              <a href="/generate" class="btn cl-hero-btn-primary">
+                <i class="bi bi-question-circle me-2"></i>Generate Questions for Role
+              </a>
+              <a href="/chat" class="btn cl-hero-btn-secondary">
+                <i class="bi bi-chat-dots me-2"></i>Discuss with AI Coach
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.CareerLift) {
+    window.CareerLift.resume.init();
+  }
+});
+</script>
+{% endblock %}

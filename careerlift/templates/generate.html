@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Question Generator — CareerLift{% endblock %}
+
+{% block content %}
+<div class="container-lg py-4">
+  <div class="row g-4">
+    <!-- Sidebar Config -->
+    <div class="col-lg-4">
+      <div class="cl-card sticky-top" style="top: 80px;">
+        <div class="cl-card-header">
+          <h6 class="mb-0 fw-bold"><i class="bi bi-sliders me-2"></i>Customise Questions</h6>
+        </div>
+        <div class="cl-card-body">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Target Role</label>
+            <input type="text" id="genRole" class="form-control cl-input"
+                   placeholder="e.g. Software Engineer"
+                   value="{{ profile.role or 'Software Engineer' }}" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Experience Level</label>
+            <select id="genExp" class="form-select cl-input">
+              <option value="fresher">Fresher (0-1 yr)</option>
+              <option value="mid" {% if profile.experience == 'mid' or not profile.experience %}selected{% endif %}>Mid-Level (2-5 yr)</option>
+              <option value="senior" {% if profile.experience == 'senior' %}selected{% endif %}>Senior (5-10 yr)</option>
+              <option value="expert" {% if profile.experience == 'expert' %}selected{% endif %}>Expert (10+ yr)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Interview Type</label>
+            <div class="d-flex flex-wrap gap-2">
+              {% for t in types %}
+              <button class="btn cl-type-btn {% if loop.first %}active{% endif %}"
+                      data-type="{{ t }}">{{ t | replace('_', ' ') | title }}</button>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Target Company <span class="cl-text-muted">(optional)</span></label>
+            <input type="text" id="genCompany" class="form-control cl-input"
+                   placeholder="e.g. Google, Amazon..."
+                   value="{{ profile.company or '' }}" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold d-flex justify-content-between">
+              <span>Number of Questions</span>
+              <span class="cl-accent-text fw-bold" id="countDisplay">5</span>
+            </label>
+            <input type="range" class="form-range cl-range" id="genCount" min="3" max="10" value="5" />
+          </div>
+          <button class="btn cl-hero-btn-primary w-100" id="generateBtn">
+            <i class="bi bi-lightning-charge-fill me-2"></i>Generate Questions
+          </button>
+        </div>
+
+        <!-- Shortcuts -->
+        <div class="cl-card-body border-top pt-3">
+          <p class="small fw-semibold mb-2 cl-text-muted">Quick Shortcuts</p>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn cl-quick-btn" onclick="quickGenerate('technical', 'Google', 'senior')">🔍 Google SWE</button>
+            <button class="btn cl-quick-btn" onclick="quickGenerate('behavioral', 'Amazon', 'mid')">📦 Amazon LP</button>
+            <button class="btn cl-quick-btn" onclick="quickGenerate('hr', '', 'fresher')">💼 HR Basics</button>
+            <button class="btn cl-quick-btn" onclick="quickGenerate('coding', '', 'mid')">💻 Coding</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="col-lg-8">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="cl-page-icon"><i class="bi bi-question-octagon-fill"></i></div>
+        <div>
+          <h2 class="mb-0 fw-bold">Question Generator</h2>
+          <p class="cl-text-muted mb-0 small">AI-generated personalised interview questions with model answers</p>
+        </div>
+      </div>
+
+      <!-- Placeholder -->
+      <div class="cl-placeholder-card text-center py-5" id="placeholder">
+        <div class="cl-placeholder-icon mb-3"><i class="bi bi-question-octagon"></i></div>
+        <h5>Configure &amp; Generate</h5>
+        <p class="cl-text-muted">Select your role, experience, and interview type on the left, then click Generate Questions.</p>
+      </div>
+
+      <!-- Loading State -->
+      <div class="text-center py-5 d-none" id="genLoading">
+        <div class="cl-spinner-lg mb-3"></div>
+        <p class="cl-text-muted fs-5">Generating questions with IBM Granite...</p>
+        <small class="cl-text-muted">Using RAG retrieval from knowledge base</small>
+      </div>
+
+      <!-- Questions Output -->
+      <div class="d-none" id="questionsOutput">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0 fw-bold" id="questionsTitle">Interview Questions</h5>
+          <button class="btn cl-icon-btn" id="copyQBtn" title="Copy all">
+            <i class="bi bi-clipboard"></i>
+          </button>
+        </div>
+        <div id="questionsContent" class="cl-questions-content"></div>
+        <div class="mt-4 d-flex gap-2">
+          <a href="/mock" class="btn cl-hero-btn-primary">
+            <i class="bi bi-mic-fill me-2"></i>Practice in Mock Interview
+          </a>
+          <a href="/chat" class="btn cl-hero-btn-secondary">
+            <i class="bi bi-chat-dots me-2"></i>Discuss with AI Coach
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function quickGenerate(type, company, exp) {
+  document.getElementById('genCompany').value = company;
+  document.getElementById('genExp').value = exp;
+  document.querySelectorAll('.cl-type-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.type === type);
+  });
+  document.getElementById('generateBtn').click();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.CareerLift) {
+    window.CareerLift.generate.init();
+  }
+});
+</script>
+{% endblock %}

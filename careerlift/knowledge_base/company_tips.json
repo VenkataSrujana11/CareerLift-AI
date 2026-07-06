@@ -1,0 +1,123 @@
+[
+  {
+    "category": "company_specific",
+    "company": "Google",
+    "question": "How would you rate yourself as an engineer? Why?",
+    "answer": "Google values self-awareness and humility. Be honest: pick a realistic number (e.g., 7/10) with specific reasoning tied to breadth and depth of experience. Acknowledge growth areas. 'I'd rate myself 7/10. Strong in distributed systems and Python, actively improving system design skills for larger-scale problems. I measure myself by impact, not just technical ability.'",
+    "tip": "Google looks for Googleyness: intellectual humility, ability to learn, and collaborative spirit."
+  },
+  {
+    "category": "company_specific",
+    "company": "Amazon",
+    "question": "Tell me about a time you had to make a decision with very little data.",
+    "answer": "Amazon Leadership Principle: Bias for Action. 'During a product launch, analytics were delayed by 3 days but we needed a go/no-go decision. I gathered qualitative data (5 quick user calls), analyzed available quantitative proxies, made a calculated decision to proceed with a limited rollout, and set up monitoring. The decision proved correct — strong early engagement, full launch in week 2.'",
+    "tip": "Map every answer to an Amazon Leadership Principle. Bias for Action, Ownership, Customer Obsession are frequently tested."
+  },
+  {
+    "category": "company_specific",
+    "company": "Amazon",
+    "question": "Describe a time you delivered a project under tight deadline.",
+    "answer": "Amazon LP: Deliver Results. 'Given 3 weeks to migrate 50 API endpoints to new auth system. Created detailed task breakdown, eliminated non-critical work, made daily check-ins with team, escalated blockers immediately. Delivered in 18 days, all tests passing, zero downtime.'",
+    "tip": "Amazon expects specific timelines, numbers, and outcomes. The more concrete, the better."
+  },
+  {
+    "category": "company_specific",
+    "company": "Microsoft",
+    "question": "How do you foster a growth mindset in your team?",
+    "answer": "Microsoft is built on Satya Nadella's growth mindset philosophy. 'I encourage learning over performance by celebrating effort and learning from failures. In retrospectives, I ensure we extract lessons without blame. I actively share articles and resources, hold weekly knowledge-sharing sessions, and give junior devs stretch assignments with support.'",
+    "tip": "Reference Growth Mindset explicitly. Microsoft looks for leaders who build psychological safety."
+  },
+  {
+    "category": "company_specific",
+    "company": "Meta",
+    "question": "Tell me about a time you moved fast and made mistakes.",
+    "answer": "Meta's culture: Move Fast. 'We shipped a feature without sufficient A/B testing, assuming user behavior. Feature adoption was 30% below target. Post-mortem revealed we misunderstood a key user segment. Rolled back in 48 hours, redesigned with proper user research, relaunched 2 weeks later to 150% of target adoption. Learned: speed and data must coexist.'",
+    "tip": "Meta values speed AND learning. Show you can ship fast, fail fast, and recover fast."
+  },
+  {
+    "category": "company_specific",
+    "company": "Apple",
+    "question": "Describe a time you paid extreme attention to quality and detail.",
+    "answer": "Apple is obsessed with quality. 'I noticed a 50ms performance regression in our mobile app's scroll animation — below our SLA but perceptible to power users. I investigated, found unnecessary redraws in list view, optimized to 12ms. Presented the issue to product with UX video evidence. We shipped the fix. Small detail, but reflected our commitment to polish.'",
+    "tip": "Apple hires people who care deeply about the details. Show obsession with user experience quality."
+  },
+  {
+    "category": "company_specific",
+    "company": "IBM",
+    "question": "How would you help a client adopt AI/cloud technologies?",
+    "answer": "IBM is a consulting-led tech company. 'I would start by understanding the client's current state and pain points, then map AI/cloud solutions to specific business outcomes. Conduct a proof-of-concept to demonstrate ROI before full commitment. Ensure knowledge transfer to client team, align with their security and compliance requirements, and provide ongoing support.'",
+    "tip": "IBM values enterprise experience. Mention hybrid cloud, security, compliance, and change management."
+  },
+  {
+    "category": "company_specific",
+    "company": "Startup",
+    "question": "How do you approach building something from scratch with limited resources?",
+    "answer": "Startups value scrappiness and product instinct. 'I follow the Lean Startup approach: identify the riskiest assumption, build the smallest MVP to test it, measure ruthlessly, and iterate. At [previous startup], we validated product-market fit with a $0 landing page before writing a single line of code. Saved 3 months of development.'",
+    "tip": "Show you can do more with less. Mention experimentation, prioritization, and business impact."
+  },
+  {
+    "category": "interview_tips",
+    "type": "general",
+    "tip": "Research the company thoroughly: read their engineering blog, recent news, LinkedIn profiles of interviewers (if known), Glassdoor reviews, and annual reports for public companies."
+  },
+  {
+    "category": "interview_tips",
+    "type": "general",
+    "tip": "Prepare your top 5-7 STAR stories covering: leadership, conflict, failure, success, collaboration, technical challenge, initiative. Most behavioral questions can be answered with these."
+  },
+  {
+    "category": "interview_tips",
+    "type": "technical",
+    "tip": "For coding interviews: think out loud, clarify constraints before coding, consider edge cases, write clean code first then optimize. Time/space complexity analysis is expected."
+  },
+  {
+    "category": "interview_tips",
+    "type": "system_design",
+    "tip": "System design framework: (1) Clarify requirements, (2) Estimate scale, (3) High-level design, (4) Deep dive components, (5) Identify bottlenecks, (6) Trade-offs and alternatives. Practice drawing diagrams."
+  },
+  {
+    "category": "interview_tips",
+    "type": "hr",
+    "tip": "First impressions matter: arrive 10 minutes early (in-person) or log in 5 minutes early (virtual). Dress one level up from company culture. Firm handshake, eye contact, smile."
+  },
+  {
+    "category": "interview_tips",
+    "type": "virtual",
+    "tip": "Virtual interview prep: test camera/mic/internet 30 min before. Professional background or virtual background. Good lighting (face the light source). Silence notifications. Have water nearby."
+  },
+  {
+    "category": "interview_tips",
+    "type": "salary",
+    "tip": "Negotiate salary: always negotiate — 90% of offers have room. Counter with data-backed range. Delay salary discussion until offer stage. Consider total comp: base, equity, bonus, benefits, PTO."
+  },
+  {
+    "category": "hiring_trends",
+    "year": 2024,
+    "trend": "AI/ML skills are now expected even for non-AI roles. Engineers should understand LLMs, prompt engineering, and AI tooling like Copilot.",
+    "impact": "High"
+  },
+  {
+    "category": "hiring_trends",
+    "year": 2024,
+    "trend": "Cloud-native skills (AWS/Azure/GCP) are table stakes for most engineering roles. Kubernetes, Terraform, and CI/CD are highly valued.",
+    "impact": "High"
+  },
+  {
+    "category": "hiring_trends",
+    "year": 2024,
+    "trend": "Companies are reducing headcount but increasing bar for quality. Fewer hirings means more rigorous interviews and higher performance expectations.",
+    "impact": "High"
+  },
+  {
+    "category": "hiring_trends",
+    "year": 2024,
+    "trend": "Remote and hybrid roles remain prevalent. Communication, async work skills, and self-direction are highly valued.",
+    "impact": "Medium"
+  },
+  {
+    "category": "hiring_trends",
+    "year": 2024,
+    "trend": "Coding interviews now increasingly include system design rounds even for junior positions at top companies.",
+    "impact": "Medium"
+  }
+]

@@ -1,7 +1,7 @@
 # CareerLift AI — run.py
 # Entry point for local development
 
-from careerlift import create_app
+from __init__ import create_app
 
 app = create_app()
 

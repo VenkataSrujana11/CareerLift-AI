@@ -20,7 +20,7 @@ from modules.prompt_builder import (
     build_tip_prompt,
     build_chat_prompt,
 )
-from .modules.progress_tracker import (
+from modules.progress_tracker import (
     init_session,
     get_profile,
     update_profile,

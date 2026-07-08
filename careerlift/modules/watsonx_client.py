@@ -17,7 +17,6 @@ except ImportError:
 
 load_dotenv()
 
-
 class WatsonXClient:
     """Singleton wrapper for IBM watsonx.ai ModelInference."""
 
@@ -135,7 +134,6 @@ def get_watsonx_client() -> WatsonXClient:
     if _client is None:
         _client = WatsonXClient()
     return _client
-
 
 def generate_response(prompt: str, system_prompt: str = "", max_tokens: int = 1500) -> str:
     return get_watsonx_client().generate(prompt, system_prompt, max_tokens)

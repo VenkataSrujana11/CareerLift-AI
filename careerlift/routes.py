@@ -7,11 +7,11 @@ import uuid
 from flask import Blueprint, render_template, request, jsonify, session, current_app
 from werkzeug.utils import secure_filename
 
-from .modules.agent_instructions import AGENT_INSTRUCTIONS
-from .modules.watsonx_client import generate_response
-from .modules.rag_retrieval import augmented_prompt
-from .modules.resume_parser import allowed_file, parse_resume
-from .modules.prompt_builder import (
+from modules.agent_instructions import AGENT_INSTRUCTIONS
+from modules.watsonx_client import generate_response
+from modules.rag_retrieval import augmented_prompt
+from modules.resume_parser import allowed_file, parse_resume
+from modules.prompt_builder import (
     build_question_prompt,
     build_resume_analysis_prompt,
     build_mock_question_prompt,
